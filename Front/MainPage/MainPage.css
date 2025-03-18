@@ -1,0 +1,72 @@
+
+.ContentArea {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    .MapArea {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .MapContent{
+            width: 100%;
+            height: 90%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .ControlPanel{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                
+            }
+        }
+
+        .Map {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .Content {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow-y: scroll;
+
+
+        .DataContent {
+            width: 90%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .PrintArea{
+            display: none;
+            flex-direction: column;
+            width: 100%;
+            margin-top: 50px;
+            justify-content: center;
+            align-items: center;
+            .PrintButton{
+                width: 100px;
+            }
+        }
+
+    }
+}

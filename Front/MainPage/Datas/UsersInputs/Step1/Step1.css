@@ -1,0 +1,56 @@
+.Step1 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: #000;
+    min-width: 300px;
+    
+}
+
+.AdressContainer{
+    display: flex;
+    flex-direction: column;
+    .Suggestion{
+        display: flex;
+        flex-direction: column;
+        /* Style de base pour les éléments <li> */
+        li {
+            font-family: Arial, sans-serif;
+            list-style-type: none;
+            font-size: 16px;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        li:hover {
+            background-color: #414141;
+            border: 1px solid #ccc;
+        }
+
+        li.selected {
+            background-color: #d0e0ff; 
+            color: #333;
+        }
+
+    }
+}
+
+.PostalCodeCity {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.NavButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.highlight {
+    background-color: #f0f0f0; /* Couleur de fond plus claire au survol */
+}

@@ -1,0 +1,45 @@
+
+<div class="ContentArea">
+    <div id="MapArea" class="MapArea">
+        <div class="MapContent">
+            <div id="Map" class="Map"></div>
+            <div class="ControlPanel">
+                <div>
+                    <label for="radius">Rayon (km) : </label>
+                    <input type="number" id="radius" placeholder="50" value="10">
+                </div>
+                <div>
+                    <label for="amenityLimit">Nombre limite de commodités : </label>
+                    <input type="number" id="amenityLimit" placeholder="100" value="10">
+                </div>
+                <div>
+                    <p>Commodités à afficher :</p>
+                    <button class="ToggleAmenityList" id="toggleAmenityList">Afficher les commodités</button>
+                    <div class="AmenityList" id="amenityList">
+                        <div class="AmenityCheckboxes" id="amenityCheckboxes">
+                            <!-- Les cases à cocher seront ajoutées ici par JavaScript -->
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    
+    
+    </div>
+    <div class="Content">
+        <div id="PrintArea" class="PrintArea">
+            <button id="PrintButton" class="PrintButton">imprimer</button>
+        </div>
+        <div class="DataContent">
+            <!-- Inclure les étapes ici -->
+            <div id="Step1"></div>
+            <div id="Step2"></div>
+            <div id="Step3"></div>
+            <div id="Step4"></div>
+            <div id="Result"></div>
+        </div>
+    </div>
+</div>

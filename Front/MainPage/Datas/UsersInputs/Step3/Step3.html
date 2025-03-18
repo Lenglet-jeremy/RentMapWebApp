@@ -1,0 +1,107 @@
+<div id="Step3" class="Step3">
+    <h3>Informations principales</h3>
+    <div class="Surface">
+        <div class="SurfaceArea">
+            <p>Surface</p>
+            <div class="SurfaceUserInput">
+                <label>
+                    <input id="SurfaceUserInputValue" type="text" placeholder="50">
+                    <p>m²</p>
+                </label>
+            </div>
+        </div>
+        <div class="PiecesChambersNumber">
+            <div class="PiecesNumber">
+                <p>Nombre de pièces</p>
+                <div class="InputWithButtons">
+                    <button type="button" class="Minus">−</button>
+                    <input id="PiecesNumberUsersInputValue" type="text" placeholder="Ex : 1" value="1">
+                    <button type="button" class="Plus">+</button>
+                </div>
+            </div>
+            <div class="ChamberNumber">
+                <p>Nombre de Chambres</p>
+                <div class="InputWithButtons">
+                    <button type="button" class="Minus">−</button>
+                    <input id="ChamberNumberUsersInputValue" type="text" placeholder="Ex : 1" value="1">
+                    <button type="button" class="Plus">+</button>
+                </div>
+            </div>
+        </div>
+        <div class="BathroomsNumber">
+            <p>Nombre de salles de bains</p>
+            <div class="InputWithButtons">
+                <button type="button" class="Minus">−</button>
+                <input id="BathroomsNumberUsersInputValue" type="text" placeholder="Ex : 1" value="1">
+                <button type="button" class="Plus">+</button>
+            </div>
+        </div>
+        <div class="AppartementFloors">
+            <div class="AppartementFloorNumber">
+                <p>Etages de l'appartement</p>
+                <div class="InputWithButtons">
+                    <button type="button" class="Minus">−</button>
+                    <input id="AppartementFloorsUsersInputValue" type="text" placeholder="Ex : 1" value="1">
+                    <button type="button" class="Plus">+</button>
+                </div>
+            </div>
+            <div class="AppartementFloorsNumber">
+                <p>Nombre d'étages de l'appartement</p>
+                <div class="InputWithButtons">
+                    <button type="button" class="Minus">−</button>
+                    <input id="AppartementFloorsNumberUsersInputValue" type="text" placeholder="Ex : 1" value="1">
+                    <button type="button" class="Plus">+</button>
+                </div>
+            </div>
+        </div>
+        <div id="ElevatorOption" class="ElevatorOption">
+            <label class="ToggleSwitch">
+                <input id="ElevatorOptionUserChoice" type="checkbox">
+                <span class="Slider"></span>
+            </label>
+            <span class="LabelText">Cet appartment possède-t-il un ascenseur ?</span>
+        </div>
+    </div>
+    <div class="DPE_GES">
+        <div class="input-group">
+            <div class="DPE">
+                <label for="dpe">DPE :</label>
+                <span class="tooltip">?
+                    <span class="tooltip-text">Diagnostique de performance énergétique</span>
+                </span>
+            </div>
+            <select id="dpe">
+                <option value="non-renseigne">Non renseigné</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="E">E</option>
+                <option value="F">F</option>
+                <option value="G">G</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <div class="GES">
+                <label for="ges">GES :</label>
+                <span class="tooltip">?
+                    <span class="tooltip-text">Gaz à effet de serre</span>
+                </span>
+            </div>
+            <select id="ges">
+                <option value="non-renseigne">Non renseigné</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="E">E</option>
+                <option value="F">F</option>
+                <option value="G">G</option>
+            </select>
+        </div>
+    </div>
+    <div class="NavButtons">
+        <button id="prev">&larr; Precedent</button>
+        <button id="next">Suivant &#8594;</button>
+    </div>
+</div>

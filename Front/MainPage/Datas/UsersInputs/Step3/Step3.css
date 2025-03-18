@@ -1,0 +1,197 @@
+.Step3 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 500px;
+}
+
+button {
+    width: 20px;
+    height: 20px;
+}
+
+.DPE_GES {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.DPE, .GES {
+    display: flex;
+    flex-direction: row;
+}
+
+.input-group select {
+    width: 120px;
+}
+
+.Surface {
+    display: flex;
+    flex-direction: column;
+}
+
+.SurfaceUserInput label {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+
+    width: 100px;
+    background-color: #fff;
+}
+
+.SurfaceUserInput input {
+    border: none;
+    margin: 5px;
+    width: 60px;
+}
+
+.SurfaceUserInput p {
+    color: #000000;
+    margin: 5px;
+}
+
+.PiecesChambersNumber, .AppartementFloors {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.ElevatorOption {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.ToggleSwitch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+
+.ToggleSwitch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.Slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 34px;
+    transition: 0.3s;
+}
+
+.Slider:before {
+    content: "";
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+input:checked + .Slider {
+    background-color: #2ecc71;
+}
+
+input:checked + .Slider:before {
+    transform: translateX(24px);
+}
+
+.NavButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.NavButtons button {
+    width: 100px;
+    height: 50px;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 5px;
+    font-weight: bold;
+    color: #007bff;
+    border: 1px solid #007bff;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    text-align: center;
+    line-height: 16px;
+    font-size: 14px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tooltip .tooltip-text {
+    visibility: hidden;
+    width: 200px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 12px;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+.InputWithButtons {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 100px;
+}
+
+.InputWithButtons input {
+    width: 40px;
+    height: 30px;
+    text-align: center;
+    border: none;
+    outline: none;
+}
+
+.InputWithButtons button {
+    background-color: #ddd;
+    border: none;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.InputWithButtons button:hover {
+    background-color: #bbb;
+}

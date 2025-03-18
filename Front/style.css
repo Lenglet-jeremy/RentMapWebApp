@@ -1,0 +1,70 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --backgroundColor : #000000;
+    --color : #FFFFFF;
+    --policyColor : #c8f0ff;
+}
+
+h3 {
+    color: var(--policyColor);
+}
+
+p {
+    color: var(--policyColor);
+}
+
+label {
+    color: var(--policyColor);
+}
+
+button {
+    width: 100px;
+    height: 50px;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--backgroundColor);
+}
+
+.Body {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ToggleAmenityList{
+    width: 200px; 
+}
+
+.AmenityCheckboxes {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    position: absolute;
+}
+
+
+
+
+/* Styles pour les étapes */
+.Step1, .Step2, .Step3, .Step4, .Result {
+    display: none;
+    width: 100%;
+    height: 90%;
+}
+
+/* Styles spécifiques pour chaque étape */
+@import url('./Datas/UsersInputs/Step1/Step1.css');
+@import url('./Datas/UsersInputs/Step2/Step2.css');
+@import url('./Datas/UsersInputs/Step3/Step3.css');
+@import url('./Datas/UsersInputs/Step4/Step4.css');
+@import url('./Datas/Result/Result.css');
