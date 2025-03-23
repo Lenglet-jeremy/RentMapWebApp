@@ -111,7 +111,7 @@ showStep(currentStep);
 
 document.getElementById('PrintButton').addEventListener('click', function() {
     const originalContent = document.body.innerHTML;
-    const printContent = document.getElementById('ResultArea').innerHTML;
+    const printContent = document.getElementById('Result').innerHTML;
 
     document.body.innerHTML = printContent;
 
@@ -120,3 +120,5 @@ document.getElementById('PrintButton').addEventListener('click', function() {
     document.body.innerHTML = originalContent;
     window.location.reload();
 });
+
+

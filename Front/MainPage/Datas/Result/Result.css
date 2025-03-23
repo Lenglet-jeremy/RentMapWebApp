@@ -105,6 +105,49 @@
                 background-color: #FF000099;
             }
         }
+
+        
+        .ThirdLine{
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            justify-content: space-between;
+
+            .AgeRate{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                width: 200px;
+                height: 100px;
+
+                background-color: #00aeff99;
+            }
+
+            .VacantsCommodationsRateArea{
+                
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                width: 200px;
+                height: 100px;
+
+                background-color: #00aeff99;
+            }
+
+            .LocativeTensionRate{
+                
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                width: 200px;
+                height: 100px;
+
+                background-color: #00aeff99;
+            }
+        }
             .StudentsRateArea{
                 
                 display: flex;

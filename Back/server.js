@@ -1,6 +1,5 @@
 const express = require("express");
 const cors = require("cors");
-const mongoose = require('mongoose');
 const fs = require('fs');
 const path = require('path');
 
@@ -90,6 +89,26 @@ app.get("/api/EvolPop", (req, res) => {
 app.get("/api/EvolPrixImmo", (req, res) => {
   try {
     const allJsonData = readAllJsonFilesWithPattern(dataFolder, "EvolPrixImmo.json");
+    res.json(allJsonData);
+  } catch (error) {
+    console.error("Erreur lors de la lecture des fichiers JSON :", error);
+    res.status(500).json({ error: "Erreur lors de la récupération des données JSON." });
+  }
+});
+
+app.get("/api/TauxHabitationVacants", (req, res) => {
+  try {
+    const allJsonData = readAllJsonFilesWithPattern(dataFolder, "TauxHabitationVacants.json");
+    res.json(allJsonData);
+  } catch (error) {
+    console.error("Erreur lors de la lecture des fichiers JSON :", error);
+    res.status(500).json({ error: "Erreur lors de la récupération des données JSON." });
+  }
+});
+
+app.get("/api/TensionLocative", (req, res) => {
+  try {
+    const allJsonData = readAllJsonFilesWithPattern(dataFolder, "TensionLocative.json");
     res.json(allJsonData);
   } catch (error) {
     console.error("Erreur lors de la lecture des fichiers JSON :", error);

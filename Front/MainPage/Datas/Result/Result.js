@@ -1,5 +1,3 @@
-
-
 function normalizeString(str) {
     return str
         ? str.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Supprime les accents
@@ -67,6 +65,26 @@ async function fetchNeighborhoodCostRentData(department, city) {
     } catch (error) {
         console.error('Erreur lors de la récupération des données de population:', error);
         return {};
+    }
+}
+
+async function fetchVacantsAcommodationsData(department, city) {
+    try {
+        const response = await fetch(`http://localhost:5000/api/TauxHabitationVacants`);
+        const data = await response.json();
+
+        for (const key in data) {
+            if (data.hasOwnProperty(key) && key.includes(normalizeString(department))) {
+                for (const collection of data[key]) {
+                    if (normalizeString(collection["libgeo"]) === normalizeString(city)) {                                  
+                        return collection["part_logt_vacant"]
+                    }
+                }
+            }
+        }        
+    } catch (error) {
+        console.error('Erreur lors de la récupération des données de population:', error);
+        return ;
     }
 }
 
@@ -193,6 +211,7 @@ async function fillPopulationTable(department, cityName) {
 
     // Parcourir toutes les lignes du tableau
     const rows = tableBody.querySelectorAll("tr");
+    
     rows.forEach(row => {
         const year = row.querySelector("td").innerText;
         if (populationData[year]) {
@@ -205,6 +224,30 @@ async function fillPopulationTable(department, cityName) {
             row.querySelectorAll("td")[7].innerText = populationData[year].total75toMore.toLocaleString();
         }
     });
+
+    
+    let firstRow = document.querySelector("tbody tr") || document.querySelector("tr"); 
+    let cells = firstRow.querySelectorAll("td");
+
+    let data = Array.from(cells).map(cell => cell.textContent.replace(/\s/g, '')).map(Number);
+
+    console.log("Données extraites :", data);
+
+    if (data.length < 8) {
+        console.error("Format inattendu des données !");
+    } else {
+        let populationTotale = data[1];
+        let effectifs = data.slice(2);
+
+        let agesMoyens = [7, 22, 37, 52, 67, 80];
+
+        let sommePonderee = effectifs.reduce((sum, effectif, index) => sum + effectif * agesMoyens[index], 0);
+        let ageMoyen = sommePonderee / populationTotale;
+
+        console.log("Âge moyen :", ageMoyen.toFixed(2));
+        document.getElementById("AverageAge").textContent = ageMoyen.toFixed(2);
+    }
+    
 }
 
 async function fetchNeighborhoodPopulationData(department, city) {
@@ -287,7 +330,6 @@ async function fillNeighborhoodPopulationTable(department, city) {
     }
 }
 
-
 async function fetchPrixImmoData(department, cityName) {
     try {
         const response = await fetch(`http://localhost:5000/api/EvolPrixImmo`);
@@ -342,6 +384,27 @@ async function fillPrixImmoTable(department, cityName) {
     });
 }
 
+async function fetchLocativeTension(cityName) {
+    
+    try {
+        const response = await fetch(`http://localhost:5000/api/TensionLocative`);
+        const data = await response.json();
+
+        for (const key in data) {
+            for (const collection of data[key]) {
+                if (normalizeString(collection["Nom"]) === normalizeString(cityName)) {
+                    const locTention = collection["Tension locative"];
+                    return locTention;
+                }
+            }
+        }
+
+    } catch (error) {
+        console.error('Erreur lors de la récupération des données de population:', error);
+        return {};
+    }
+}
+
 export async function updateValues() {
     let typeOfPropertyValue = document.getElementById("TypeOfPropertyValue");
     let costSquare = document.getElementById("CostSquareValue");
@@ -354,6 +417,8 @@ export async function updateValues() {
     let UnemployedRate = document.getElementById("UnemployedRate");
     let yieldValue = document.getElementById("YieldValue");
     let cityDescriptionValue = document.querySelector(".CityDescriptionValue");
+    let vacantsCommodations = document.getElementById("VacantsCommodationsRate");
+    let LocativeTension = document.getElementById("LocativeTension");
 
     typeOfPropertyValue.innerText = sessionStorage.getItem("propertyType") || "Non spécifié";
     nbPiecesValue.innerText = (sessionStorage.getItem("PiecesNumberUsersInputValue") || "0") + " Pièces";
@@ -374,12 +439,16 @@ export async function updateValues() {
     Population.innerText = parseInt(data.population).toLocaleString();
     StudentsRate.innerText = (data.studentsRate * 100).toFixed(2) + "%";
     UnemployedRate.innerText = (data.unemploymentRate * 100).toFixed(2) + "%";
+    
+    vacantsCommodations.innerText = await fetchVacantsAcommodationsData(department, city) + " %"
 
     fillPopulationTable(department, city);
     fillPrixImmoTable(department, city);
 
     fillNeighborhoodCostRentTable(department, city);
     fillNeighborhoodPopulationTable(department, city);
+
+    LocativeTension.innerText = await fetchLocativeTension(city)
 
 }
 

@@ -68,3 +68,20 @@ body {
 @import url('./Datas/UsersInputs/Step3/Step3.css');
 @import url('./Datas/UsersInputs/Step4/Step4.css');
 @import url('./Datas/Result/Result.css');
+
+
+@media print {
+    #DataContent{
+            width: 100vw;
+            height: 100vh;
+
+
+        .TypeNbPiecesSurfaceCity{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            width: 100%;
+        }
+
+    }
+}
